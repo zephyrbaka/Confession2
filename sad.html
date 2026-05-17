@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>MUEHEHEHE</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    font-family:'Pixelify Sans', sans-serif;
+
+    background:url("heart-bg.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    position:relative;
+}
+
+/* Dark Overlay */
+
+body::before{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.45);
+
+    z-index:-1;
+}
+
+/* =========================
+   WINDOW
+========================= */
+
+.window{
+
+    width:90vw;
+    max-width:700px;
+    min-height:500px;
+
+    box-sizing:border-box;
+
+    padding:40px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:url("window.png");
+    background-size:100% 100%;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    animation:pop 0.8s ease;
+
+    position:relative;
+
+    gap:10px;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+h1{
+    font-size:36px;
+
+    margin:0;
+
+    color:#0e0a0b;
+
+    text-shadow:
+        0 2px 4px rgba(255,255,255,0.5);
+}
+
+p{
+    color:black;
+
+    opacity:0.9;
+
+    font-size:20px;
+
+    margin:0;
+
+    text-shadow:
+        0 1px 2px rgba(255,255,255,0.4);
+}
+
+h4{
+    margin:0;
+
+    color:#444;
+
+    font-size:16px;
+}
+
+/* =========================
+   GIF
+========================= */
+
+img{
+    width:200px;
+
+    margin:10px 0;
+
+    transition:transform 0.3s ease;
+}
+
+img:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+
+    padding:12px 24px;
+
+    border:none;
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-family:'Pixelify Sans', sans-serif;
+    font-size:18px;
+
+    background:#ff4d6d;
+
+    color:white;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.2);
+}
+
+button:hover{
+
+    transform:
+        scale(1.08)
+        translateY(-3px);
+
+    filter:
+        drop-shadow(0 0 10px rgba(255,255,255,0.7));
+}
+
+button:active{
+    transform:scale(0.95);
+}
+
+/* =========================
+   POP ANIMATION
+========================= */
+
+@keyframes pop{
+
+    from{
+        transform:
+            scale(1.2)
+            translateY(20px);
+
+        opacity:0;
+    }
+
+    to{
+        transform:
+            scale(1)
+            translateY(0);
+
+        opacity:1;
+    }
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart{
+
+    position:absolute;
+
+    bottom:-20px;
+
+    font-size:22px;
+
+    animation:
+        floatUp linear infinite;
+
+    opacity:0.6;
+
+    pointer-events:none;
+}
+
+@keyframes floatUp{
+
+    from{
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    to{
+        transform:
+            translateY(-120vh)
+            rotate(360deg);
+
+        opacity:1;
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width:768px){
+
+    .window{
+
+        width:95vw;
+
+        min-height:70vh;
+
+        padding:25px;
+
+        background-size:cover;
+    }
+
+    h1{
+        font-size:24px;
+        width:90%;
+    }
+
+    p{
+        font-size:16px;
+    }
+
+    h4{
+        font-size:14px;
+    }
+
+    img{
+        width:150px;
+    }
+
+    button{
+
+        padding:10px 18px;
+
+        font-size:16px;
+    }
+}
+
+/* =========================
+   LARGE SCREEN
+========================= */
+
+@media (min-width:1200px){
+
+    .window{
+        max-width:800px;
+        min-height:600px;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    img{
+        width:240px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="window">
+
+    <h1>
+        THANKYOUUU DH TERIMAKK MEKK IKAA ❤️
+    </h1>
+
+    <p>
+        HEHEHE BULAKK JK 😭
+    </p>
+
+    <h4>
+        tekan yes untuk reject
+    </h4>
+
+    <img src="trolled.gif" alt="trolled cat">
+
+    <button onclick="goBack()">
+        Go Back
+    </button>
+
+</div>
+
+<script>
+
+function goBack(){
+
+    window.location.href = "index.html";
+
+}
+
+/* Floating Hearts */
+
+for(let i = 0; i < 15; i++){
+
+    let heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "💔";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    heart.style.fontSize =
+        (18 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
